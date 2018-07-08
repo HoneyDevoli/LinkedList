@@ -5,14 +5,13 @@ public class BiDirectional<T> {
     private int count;
 
     public BiDirectional() {
-        count = 0;
     }
 
     public T remove(T t) {
         if(last.getT().equals(t)){
-            removeLast();
+            return removeLast();
         } else if(first.getT().equals(t)){
-            removeFirst();
+            return removeFirst();
         } else {
             Node<T> currentNode = first;
             while (currentNode != null) {
@@ -30,9 +29,8 @@ public class BiDirectional<T> {
     }
 
     public T removeByIndex(int index) {
-
-        if (index == 0) removeFirst();
-        else if (index == count - 1) removeLast();
+        if (index == 0) return removeFirst();
+        else if (index == count - 1) return removeLast();
         else {
             if (index >= count) return null;
 
